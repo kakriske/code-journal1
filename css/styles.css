@@ -1,5 +1,7 @@
 body {
-  background-color: #b6b6b6;
+  background-color: rgb(211, 211, 211);
+  font-family: sans-serif;
+  font-weight: 200;
 }
 
 .container:nth-child(1) {
@@ -24,6 +26,7 @@ body {
 
 img {
   max-width: 100%;
+  height: auto;
 }
 
 input {
@@ -34,19 +37,59 @@ textarea {
   width: 100%;
 }
 
-button {
+.button {
   background-color: #562b81;
   color: white;
   padding: 1%;
   margin-top: 3%;
   border-radius: 20%;
+  border: none;
+  position: absolute;
+  right: 70px;
+  font-size: large;
+  text-decoration: none;
+  font-family: sans-serif;
+}
+
+button {
+  color: white;
+  border-radius: 10%;
+  font-size: medium;
+  padding: 1%;
+  background-color: #562b81;
+}
+
+.form-view button {
+  display: flex;
 }
 
 .text-align-end {
-  color: red;
+  padding: 5% 0;
   text-align: end;
 }
 
 label {
   padding: 2%;
+}
+
+ul {
+  list-style: none;
+}
+
+.hidden {
+  display: none;
+}
+
+#entries-anchor {
+  color: white;
+  text-decoration: none;
+  font-size: x-large;
+}
+
+.column-full {
+  font-weight: 300;
+}
+
+h1 {
+  font-weight: 500;
 }
