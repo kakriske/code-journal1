@@ -93,3 +93,8 @@ ul {
 h1 {
   font-weight: 500;
 }
+
+.pencil {
+  display: flex;
+  justify-content: flex-end;
+}

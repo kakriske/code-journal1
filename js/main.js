@@ -21,17 +21,41 @@ $form.addEventListener('submit', function (event) {
     notes: document.getElementById('notes').value,
   };
 
-  formData.entryId = data.nextEntryId;
-  data.nextEntryId++;
-  data.entries.unshift(formData);
+  if (data.editing !== null) {
+    formData.entryId = data.editing.entryId;
+    for (let i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].entryId === formData.entryId) {
+        data.entries[i] = formData;
+        const existingLi = document.querySelector(
+          `li[data-entry-id="${formData.entryId}"]`
+        );
 
-  const newRender = renderEntry(formData);
-  const unOrder = document.getElementById('unList');
-  console.log(unOrder);
-  unOrder.prepend(newRender);
+        if (existingLi) {
+          const newRender = renderEntry(formData);
+          existingLi.replaceWith(newRender);
+        }
+
+        data.editing = null;
+        break;
+      }
+    }
+  } else {
+    formData.entryId = data.nextEntryId;
+    data.nextEntryId++;
+    data.entries.unshift(formData);
+
+    const newRender = renderEntry(formData);
+    const unOrder = document.getElementById('unList');
+    unOrder.prepend(newRender);
+  }
+
+  document.querySelector('.column-full').textContent = 'New-Entry';
+
   toggleNoEntries();
 
   viewSwap('entries');
+  document.querySelector('.column-full').textContent = 'New-Entry';
+  data.editing = null;
 
   $photoPreview.setAttribute('src', '../images/placeholder-image-square.jpg');
   $form.reset();
