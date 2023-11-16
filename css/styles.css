@@ -22,6 +22,10 @@ body {
   .text-space {
     flex-basis: 50%;
   }
+
+  input {
+    height: 15%;
+  }
 }
 
 img {
@@ -31,6 +35,8 @@ img {
 
 input {
   width: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 textarea {
