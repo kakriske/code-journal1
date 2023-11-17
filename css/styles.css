@@ -22,6 +22,10 @@ body {
   .text-space {
     flex-basis: 50%;
   }
+
+  input {
+    height: 15%;
+  }
 }
 
 img {
@@ -31,6 +35,8 @@ img {
 
 input {
   width: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 textarea {
@@ -57,6 +63,7 @@ button {
   font-size: medium;
   padding: 1%;
   background-color: #562b81;
+  cursor: pointer;
 }
 
 .form-view button {
@@ -80,6 +87,14 @@ ul {
   display: none;
 }
 
+#delete-button {
+  display: none;
+}
+
+.form-editing #delete-button {
+  display: inline-block;
+}
+
 #entries-anchor {
   color: white;
   text-decoration: none;
@@ -92,4 +107,9 @@ ul {
 
 h1 {
   font-weight: 500;
+}
+
+.pencil {
+  display: flex;
+  justify-content: flex-end;
 }
