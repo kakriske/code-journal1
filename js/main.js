@@ -87,11 +87,25 @@ $deleteButton.addEventListener('click', function () {
 
 // Confirm deletion
 $confirmDelete.addEventListener('click', function () {
-  // Perform the deletion logic here
-  // ...
+  if (data.editing) {
+    const entryIdToDelete = data.editing.entryId;
 
-  // Hide the confirmation modal
-  $confirmationModal.classList.add('hidden');
+    for (let i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].entryId === entryIdToDelete) {
+        data.entries.splice(i, 1);
+        break;
+      }
+    }
+    const entryLiToRemove = document.querySelector(
+      `li[data-entry-id="${entryIdToDelete}"]`
+    );
+    if (entryLiToRemove) {
+      entryLiToRemove.remove();
+    }
+    toggleNoEntries();
+    // Hide the confirmation modal
+    $confirmationModal.classList.add('hidden');
+  }
 });
 
 // Cancel deletion
